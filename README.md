@@ -6,12 +6,11 @@ A strength of [dehydrated](https://github.com/lukas2511/dehydrated) is its
 ability to call a hook script at various stages in the ACME process. A weakness
 is that only a single script is called.
 
-Which stage the hook is being called for is available in the first argument, so
-it's easy enough to dispatch on that, but you can end up with a lot of
-boilerplate. (The sample `hook.sh` that comes with **dehydrated** is nearly 200
-lines long. Of course, it is heavily commented, but there are over 30 actual
-lines of code. That's a lot when in many cases just a single command is needed
-to be run, such as `nginx -s reload`.)
+The first argument to the hook indicates the stage in question, so it's easy
+enough to dispatch on that. But you can end up with a lot of boilerplate: the
+sample `hook.sh` that comes with **dehydrated** is nearly 200 lines long. Of
+course, it is heavily commented, but there are over 30 actual lines of code.
+That's a lot when in many cases just a single command is needed to be run.
 
 More importantly, the single hook script destroys composability. Mythic Beasts
 implemented a hook script that does `dns-01` validation using our DNS API. But

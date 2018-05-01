@@ -2,6 +2,9 @@
 
 # dehydrated-code-rack - easily invoke multiple dehydrated hooks
 
+# Copyright (c) 2018 Mythic Beasts Ltd
+# All right reserved
+
 handler="$1"; shift
 
 case $handler in
