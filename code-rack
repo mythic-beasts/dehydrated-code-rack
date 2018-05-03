@@ -10,6 +10,10 @@ handler="$1"; shift
 case $handler in
     deploy_challenge|clean_challenge)
         export DOMAIN="$1" TOKEN_FILENAME="$2" TOKEN_VALUE="$3"
+        # allow chaining - see documentation
+        args=''
+        while [ "$1" ]; do args="$args$1 $2 $3\n"; shift 3; done
+        export ARGS="$args"
         ;;
     deploy_cert|unchanged_cert)
         export DOMAIN="$1"
@@ -30,6 +34,6 @@ case $handler in
         ;;
 esac
 
-dir=/etc/dehydrated/hooks/${handler//_/-}.d
+dir=/etc/dehydrated/hooks/${handler//_/-}
 /bin/mkdir -p $dir
 /bin/run-parts $dir
