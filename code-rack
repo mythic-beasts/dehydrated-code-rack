@@ -34,6 +34,6 @@ case $handler in
         ;;
 esac
 
-dir=/etc/dehydrated/hooks/${handler//_/-}
-/bin/mkdir -p $dir
-/bin/run-parts $dir
+dir="$(dirname "$0")"/${handler//_/-}
+/bin/mkdir -p "$dir"
+/bin/run-parts "$dir"
