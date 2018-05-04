@@ -1,3 +1,9 @@
+dehydrated-code-rack (0.2) unstable; urgency=medium
+
+  * fix typo in hook.sh
+
+ -- Toby Goodwin <toby@mythic-beasts.com>  Fri, 04 May 2018 15:46:42 +0100
+
 dehydrated-code-rack (0.1) unstable; urgency=low
 
   * Initial Release.

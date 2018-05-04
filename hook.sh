@@ -1,1 +1,1 @@
-HOOK=/etc/dehydrated/hooks/dehydrated-code-rack
+HOOK=/etc/dehydrated/hooks/code-rack
