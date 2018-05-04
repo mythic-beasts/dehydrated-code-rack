@@ -1,0 +1,13 @@
+Source: dehydrated-code-rack
+Section: misc
+Priority: optional
+Maintainer: Mythic Beasts Ltd <support@mythic-beasts.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://github.com/mythic-beasts/dehydrated-code-rack
+
+Package: dehydrated-code-rack
+Architecture: all
+Depends: ${misc:Depends}
+Description: Easily invoke multiple dehydrated hooks
+ Make dehydrated hook scripts composable with this dispatcher.

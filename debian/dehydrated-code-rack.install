@@ -1,0 +1,2 @@
+code-rack etc/dehydrated/hooks
+hook.sh etc/dehydrated/conf.d
