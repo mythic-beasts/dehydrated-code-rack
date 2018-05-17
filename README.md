@@ -20,9 +20,32 @@ there's no simple way to compose it with, say, nginx reload.
 of dehydrated has its own directory, and you can put any hook scripts you need
 in each one.
 
+You will need to instruct dehydrated to call **code-rack** as its hook:
+
+   $ cat /etc/dehydrated/conf.d/hook.sh
+   HOOK=/etc/dehydrated/hooks/code-rack
+
+Then create hooks in subdirectories of `/etc/dehydrated/hooks`. The following
+subdirectories will be used at the appropriate stage of the the **dehyrated**
+process:
+
+    deploy-challenge
+    clean-challenge
+    deploy-cert
+    unchanged-cert
+    invalid-challenge
+    request-failure
+    exit-hook
+
+Each hook needs to be a standalone executable, and follow the **run-parts**
+rules:
+
+> [T]he names must consist entirely of ASCII upper- and lower-case letters,
+> ASCII digits, ASCII underscores, and ASCII minus-hyphens.
+
 For the nginx reload case, the hook is a simple one-liner:
 
-    $ cat /etc/dehydrated/hooks/deploy-cert.d/nginx
+    $ cat /etc/dehydrated/hooks/deploy-cert/nginx
     #!/bin/sh
     /usr/sbin/nginx -s reload
 
@@ -30,8 +53,35 @@ The parameters that **dehydrated** sets for hooks are available in environment
 variables. For example our hook for the courier mail system combines the key
 and certificate chain into a single file:
 
-    $ cat /etc/dehydrated/hooks/deploy-cert.d/courier
+    $ cat /etc/dehydrated/hooks/deploy-cert/courier
     #!/bin/sh
     combined="$(dirname "$CERTFILE")"/combined.pem
     umask 077
     cat "$FULLCHAINFILE" "$KEYFILE" > "$combined"
+
+The complete list of variables that will be set for each hook is as follows.
+
+    deploy-challenge and clean-challenge
+        DOMAIN
+        TOKEN_FILENAME
+        TOKEN_VALUE
+    
+    deploy-cert and unchanged-cert
+        DOMAIN
+        KEYFILE
+        CERTFILE
+        FULLCHAINFILE
+        CHAINFILE
+        TIMESTAMP (not for unchanged-cert)
+    
+    invalid-challenge
+        DOMAIN
+        RESPONSE
+    
+    request-failure
+        STATUSCODE
+        REASON
+        REQTYPE
+    
+    exit-hook
+        (none)

@@ -8,6 +8,6 @@ Homepage: https://github.com/mythic-beasts/dehydrated-code-rack
 
 Package: dehydrated-code-rack
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, dehydrated
 Description: Easily invoke multiple dehydrated hooks
  Make dehydrated hook scripts composable with this dispatcher.
