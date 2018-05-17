@@ -22,8 +22,8 @@ in each one.
 
 You will need to instruct dehydrated to call **code-rack** as its hook:
 
-   $ cat /etc/dehydrated/conf.d/hook.sh
-   HOOK=/etc/dehydrated/hooks/code-rack
+    $ cat /etc/dehydrated/conf.d/hook.sh
+    HOOK=/etc/dehydrated/hooks/code-rack
 
 Then create hooks in subdirectories of `/etc/dehydrated/hooks`. The following
 subdirectories will be used at the appropriate stage of the the **dehyrated**
