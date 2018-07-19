@@ -1,3 +1,9 @@
+dehydrated-code-rack (0.3) unstable; urgency=medium
+
+  * declare we support HOOK_CHAIN
+
+ -- Toby Goodwin <support@mythic-beasts.com>  Thu, 19 Jul 2018 18:46:50 +0100
+
 dehydrated-code-rack (0.2) unstable; urgency=medium
 
   * fix typo in hook.sh
