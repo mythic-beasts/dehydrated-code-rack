@@ -1,0 +1,4 @@
+debian/dehydrated-code-rack/
+debian/dehydrated-code-rack.debhelper.log
+debian/dehydrated-code-rack.substvars
+debian/files
