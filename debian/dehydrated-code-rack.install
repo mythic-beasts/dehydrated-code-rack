@@ -1,2 +1,6 @@
 code-rack etc/dehydrated/hooks
-hook.sh etc/dehydrated/conf.d
+code-rack.sh etc/dehydrated/conf.d
+available/deploy-cert/courier etc/dehydrated/hooks/available/deploy-cert
+available/deploy-cert/exim etc/dehydrated/hooks/available/deploy-cert
+available/deploy-cert/nginx etc/dehydrated/hooks/available/deploy-cert
+available/deploy-cert/vsftpd etc/dehydrated/hooks/available/deploy-cert

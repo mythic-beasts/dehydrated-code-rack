@@ -1,0 +1,4 @@
+#!/bin/sh
+combined="$(dirname "$CERTFILE")"/combined.pem
+umask 077
+exec /bin/cat "$FULLCHAINFILE" "$KEYFILE" > "$combined"

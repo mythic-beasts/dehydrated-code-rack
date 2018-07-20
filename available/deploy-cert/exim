@@ -1,0 +1,3 @@
+#!/bin/sh
+chgrp -R exim $BASEDIR/certs
+chmod -R g+rX $BASEDIR/certs
