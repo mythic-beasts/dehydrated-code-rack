@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Give read access of the cert directory to the group of the exim user.
+
+chgrp -R Debian-exim $BASEDIR/certs
+chmod -R g+rX $BASEDIR/certs
