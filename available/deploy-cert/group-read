@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Give read access of the cert directory to a specified group. You need to
+# define GROUP somewhere, for example:
+
+# echo export GROUP=foo >> /etc/dehydrated/conf.d/group.sh
+
+echo GROUP is $GROUP
+chgrp -R $GROUP $BASEDIR/certs
+chmod -R g+rX $BASEDIR/certs

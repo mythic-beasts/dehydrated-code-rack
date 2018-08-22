@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Reload system services. You need to define SERVICES_RELOAD somewhere, for
+# example:
+
+# echo 'export SERVICES_RELOAD="mojo nginx"' >> /etc/dehydrated/conf.d/services.sh
+
+for s in $SERVICES_RELOAD; do
+	/usr/sbin/service $s reload
+done

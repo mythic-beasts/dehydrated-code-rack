@@ -3,7 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: Mythic Beasts Ltd <support@mythic-beasts.com>
 Build-Depends: debhelper (>= 9)
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: https://github.com/mythic-beasts/dehydrated-code-rack
 
 Package: dehydrated-code-rack

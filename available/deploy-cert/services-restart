@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Restart system services. You need to define SERVICES_RESTART somewhere, for
+# example:
+
+# echo 'export SERVICES_RESTART="exim4 nginx"' >> /etc/dehydrated/conf.d/service.sh
+
+for s in $SERVICES_RESTART; do
+	/usr/sbin/service $s restart
+done
