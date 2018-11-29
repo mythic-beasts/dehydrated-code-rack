@@ -28,10 +28,6 @@ case $handler in
         ;;
     exit_hook)
         ;;
-    *)
-        echo $0: unknown handler "'$handler'" >&2
-        exit 1
-        ;;
 esac
 
 dir="$(dirname "$0")"/${handler//_/-}
