@@ -1,3 +1,9 @@
+dehydrated-code-rack (0.7) stable; urgency=medium
+
+  * Add hook for stunnel4
+
+ -- Alex Frolkin <alex@mythic-beasts.com>  Wed, 05 Jun 2019 14:55:01 +0100
+
 dehydrated-code-rack (0.6) stable; urgency=medium
 
   * add more hooks: group-read, services-reload, services-restart
