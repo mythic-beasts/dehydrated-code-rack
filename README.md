@@ -59,7 +59,10 @@ and certificate chain into a single file:
     umask 077
     cat "$FULLCHAINFILE" "$KEYFILE" > "$combined"
 
-The complete list of variables that will be set for each hook is as follows.
+The complete list of variables that will be set for each hook is as follows. If
+you have `HOOK_CHAIN=yes` then deploy-challenge and clean-challenge variables
+will be for the first domain only and they will also recieve all arguments in the
+`ARGS` variable.
 
     deploy-challenge and clean-challenge
         DOMAIN
