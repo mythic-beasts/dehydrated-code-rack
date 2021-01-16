@@ -25,9 +25,10 @@ You will need to instruct dehydrated to call **code-rack** as its hook:
     $ cat /etc/dehydrated/conf.d/hook.sh
     HOOK=/etc/dehydrated/hooks/code-rack
 
-Then create hooks in subdirectories of `/etc/dehydrated/hooks`. The following
-subdirectories will be used at the appropriate stage of the the **dehyrated**
-process:
+Then create hooks in subdirectories adjacent to **code-rack** (e.g. if `code-rack`
+is in `/etc/dehydrated/hooks` then also create these subdirectories there). The
+following subdirectories will be used at the appropriate stage of the the
+**dehyrated** process:
 
     deploy-challenge
     clean-challenge
