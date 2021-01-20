@@ -39,7 +39,7 @@ case $handler in
         export KEYFILE="$1" CERTFILE="$2" FULLCHAINFILE="$3" CHAINFILE="$4" REQUESTFILE="$5"
         ;;
     exit_hook)
-        export ERROR="$1"
+        export ERROR="${1:-}"
         ;;
     *)
         echo "Unknown hook: $handler" >&2
