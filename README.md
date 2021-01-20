@@ -82,6 +82,27 @@ The complete list of variables that will be set for each hook is as follows.
         STATUSCODE
         REASON
         REQTYPE
+        HEADERS
     
     exit-hook
-        (none)
+        ERROR
+        
+    startup-hook
+        (no variables set)
+    
+    generate-csr
+        DOMAIN
+        CERTDIR
+        ALTNAMES
+        
+    deploy-ocsp
+        DOMAIN
+        OCSPFILE
+        TIMESTAMP
+
+    sync-cert
+        KEYFILE
+        CERTFILE
+        FULLCHAINFILE
+        CHAINFILE
+        REQUESTFILE
