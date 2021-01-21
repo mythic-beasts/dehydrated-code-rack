@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# symlink this file to 'reload_<name of service to reload'
+
+filename="$(basename "$0")"
+service="${filename#*_}"
+echo "Reloading $service..."
+/usr/bin/sudo /bin/systemctl reload "$service"
