@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# symlink this file to 'docker-restart_<name of container to reload'
+
+filename="$(basename "$0")"
+container="${filename#*_}"
+echo "Restarting docker container $service..."
+/usr/bin/sudo /usr/bin/docker restart "$container"
