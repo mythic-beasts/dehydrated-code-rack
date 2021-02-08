@@ -24,9 +24,22 @@ case $handler in
         export DOMAIN="$1" RESPONSE="$2"
         ;;
     request_failure)
-        export STATUSCODE="$1" REASON="$2" REQTYPE="$3"
+        export STATUSCODE="$1" REASON="$2" REQTYPE="$3" HEADERS="$4"
+        ;;
+    startup_hook)
+        # No variables for this one
+        ;;
+    generate_csr)
+        export DOMAIN="$1" CERTDIR="$2" ALTNAMES="$3"
+        ;;
+    deploy_ocsp)
+        export DOMAIN="$1" OCSPFILE="$2" TIMESTAMP="$3"
+        ;;
+    sync_cert)
+        export KEYFILE="$1" CERTFILE="$2" FULLCHAINFILE="$3" CHAINFILE="$4" REQUESTFILE="$5"
         ;;
     exit_hook)
+        export ERROR="${1:-}"
         ;;
     *)
         echo "Unknown hook: $handler" >&2

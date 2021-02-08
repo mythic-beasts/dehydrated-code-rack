@@ -86,6 +86,27 @@ will be for the first domain only and they will also recieve all arguments in th
         STATUSCODE
         REASON
         REQTYPE
+        HEADERS
     
     exit-hook
-        (none)
+        ERROR
+        
+    startup-hook
+        (no variables set)
+    
+    generate-csr
+        DOMAIN
+        CERTDIR
+        ALTNAMES
+        
+    deploy-ocsp
+        DOMAIN
+        OCSPFILE
+        TIMESTAMP
+
+    sync-cert
+        KEYFILE
+        CERTFILE
+        FULLCHAINFILE
+        CHAINFILE
+        REQUESTFILE
