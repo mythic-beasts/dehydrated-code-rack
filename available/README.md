@@ -4,7 +4,7 @@ The hooks in this directory are ready to symlinked to whichever hook points you 
 
 ## `reload_`
 
-Reload a specific service.  To use, create a symlink to it with the name `reload_{service}` with the name of the service you wish to reload from the appropriate hook directory.  For example, to reload postfix create a symlink to `reload_` with the name `reload_postfix`.  Combine with `ifdomain_` (see below) to reload services only when the SSL certficiate they use is updated.
+Reload a specific service.  To use, create a symlink to it in the appropriate hook directory, with the name `reload_{service}` where `{service}` is  the name of the service you wish to reload.  For example, to reload postfix when a certificate is deployed, create a symlink to `reload_` with the name `reload_postfix` in the `deploy-cert` directory.  Combine with `ifdomain_` (see below) to reload services only when the SSL certficiate they use is updated.
 
 ## `ifdomain_`
 
