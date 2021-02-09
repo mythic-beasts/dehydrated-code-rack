@@ -1,6 +1,6 @@
 # Hooks
 
-The hooks in this directory are ready to symlinked to whichever hook points you wish to use them at.
+The hooks in this directory are ready to be symlinked to from whichever hook points you wish to use them for.
 
 ## `reload_`
 
