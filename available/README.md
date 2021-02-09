@@ -10,7 +10,7 @@ Reload a specific service.  To use, create a symlink to it in the appropriate ho
 
 Only runs the hook if the domain triggering it matches.
 
-Due to the restrictions of run-parts (only letters, numbers, dashes and underscores are permitted), domains in the filenames needs to have the periods replaced with dashes.  For example, 'google.co.uk' would be 'google-co-uk' in the filename.
+Due to the restrictions of run-parts (only letters, numbers, dashes and underscores are permitted), domains in the filenames need to have the periods replaced with dashes.  For example, 'google.co.uk' would be 'google-co-uk' in the filename.
 
 Use it by creating a symlink with the name `ifdomain_{domain}_{hook to run}`.  The hook you want to run must exist in the same directory as the `ifdomain_` script your symlink points to.  For example, `ifdomain_google-co-uk_reload_nginx` will call the `reload_nginx` hook if the domain is 'google.co.uk'.  (Note that this means you need to create a symlink, in the same place as `ifdomain_` is, called `reload_nginx` pointing to `reload_`, if you want to use that).
 
