@@ -12,8 +12,18 @@ Only runs the hook if the domain triggering it matches.
 
 Due to the restrictions of run-parts (only letters, numbers, dashes and underscores are permitted), domains in the filenames need to have the periods replaced with dashes.  For example, 'google.co.uk' would be 'google-co-uk' in the filename.
 
-Use it by creating a symlink with the name `ifdomain_{domain}_{hook to run}`.  The hook you want to run must exist in the same directory as the `ifdomain_` script your symlink points to.  For example, `ifdomain_google-co-uk_reload_nginx` will call the `reload_nginx` hook if the domain is 'google.co.uk'.  (Note that this means you need to create a symlink, in the same place as `ifdomain_` is, called `reload_nginx` pointing to `reload_`, if you want to use that).
+Use it by creating a symlink with the name `ifdomain_{domain}_{hook to run}`.  The hook you want to run must exist in the same directory as the `ifdomain_` script your symlink points to.  For example, `ifdomain_myilo-my-domain-tld_hp-ilo-csr` will call the `hp-ilo-csr` hook (in the same directory as `ifdomain_`) only if the domain of the certificate being processed is myilo.my.domain.tld.  In this example, you would want to use hp-ilo-csr at the gemerate-csr point so the files could be laid out like this:
 
+* `available/ifdomain_`
+* `available/hp-ilo-csr`
+* `generate-csr/ifdomain_myilo-my-domain-tld_hp-ilo-csr` (symlink)=> `../available/ifdomain_`
+
+This can be combined with other 'chain' hooks, for example `ifdomain_google-co-uk_reload_nginx` will call the `reload_nginx` hook if the domain is 'google.co.uk'.  Note that this means you need to create a symlink, in the same place as `ifdomain_` is, called `reload_nginx` pointing to `reload_`, if you want to use that.  So, to reload nginx only if the certficate for 'google.co.uk' is updated, this layout of files that would work:
+
+* `available/ifdomain_`
+* `available/reload_`
+* `available/reload_nginx` (symlink)=> `reload_`
+* `deploy-cert/ifdomain_google-co-uk_reload_nginx` (symlink)=> `../available/ifdomain_`
 
 ## HP iLO scripts
 
