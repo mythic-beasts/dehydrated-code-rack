@@ -6,6 +6,22 @@ The hooks in this directory are ready to be symlinked to from whichever hook poi
 
 Reload a specific service.  To use, create a symlink to it in the appropriate hook directory, with the name `reload_{service}` where `{service}` is  the name of the service you wish to reload.  For example, to reload postfix when a certificate is deployed, create a symlink to `reload_` with the name `reload_postfix` in the `deploy-cert` directory.  Combine with `ifdomain_` (see below) to reload services only when the SSL certficiate they use is updated.
 
+By default will restart the service with `/bin/systemctl`.  This can be configured by setting `SYSTEMCTL_CMD` in the dehydrated configuration, for example to use with sudo:
+
+```bash
+echo 'export SYSTEMCTL_CMD="/usr/bin/sudo /bin/systemctl"' >> /etc/dehydrated/conf.d/systemctl_cmd.sh
+```
+
+## `docker-restart_`
+
+Restart a specific docker conatiner.  To use, create a symlink to it in the appropriate hook directory, with the name `docker-restart_{container}` where `{container}` is  the name of the container you wish to restart.  For example, to restart the omada container when a certificate is deployed, create a symlink to `docker-restart_` with the name `docker-restart_omada` in the `deploy-cert` directory.  Combine with `ifdomain_` (see below) to restart containers only when the SSL certficiate they use is updated.
+
+By default will restart the container with `/usr/bin/docker`.  This can be configured by setting `DOCKER_CMD` in the dehydrated configuration, for example to use with sudo:
+
+```bash
+echo 'export DOCKER_CMD="/usr/bin/sudo /usr/bin/docker"' >> /etc/dehydrated/conf.d/docker_cmd.sh
+```
+
 ## `ifdomain_`
 
 Only runs the hook if the domain triggering it matches.
