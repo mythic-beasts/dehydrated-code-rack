@@ -25,9 +25,10 @@ You will need to instruct dehydrated to call **code-rack** as its hook:
     $ cat /etc/dehydrated/conf.d/hook.sh
     HOOK=/etc/dehydrated/hooks/code-rack
 
-Then create hooks in subdirectories of `/etc/dehydrated/hooks`. The following
-subdirectories will be used at the appropriate stage of the the **dehyrated**
-process:
+Then create hooks in subdirectories adjacent to **code-rack** (e.g. if `code-rack`
+is in `/etc/dehydrated/hooks` then also create these subdirectories there). The
+following subdirectories will be used at the appropriate stage of the the
+**dehyrated** process:
 
     deploy-challenge
     clean-challenge
@@ -59,7 +60,10 @@ and certificate chain into a single file:
     umask 077
     cat "$FULLCHAINFILE" "$KEYFILE" > "$combined"
 
-The complete list of variables that will be set for each hook is as follows.
+The complete list of variables that will be set for each hook is as follows. If
+you have `HOOK_CHAIN=yes` then deploy-challenge and clean-challenge variables
+will be for the first domain only and they will also recieve all arguments in the
+`ARGS` variable.
 
     deploy-challenge and clean-challenge
         DOMAIN

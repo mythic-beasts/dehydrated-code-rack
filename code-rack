@@ -49,4 +49,11 @@ esac
 
 dir="$(dirname "$0")"/${handler//_/-}
 /bin/mkdir -p "$dir"
-/bin/run-parts "$dir"
+if [ -x /bin/run-parts ]
+then
+  /bin/run-parts "$dir"
+else
+  # No run-parts - probably not a Debian system, fallback to emulating run-parts with /usr/bin/find
+  # /usr/bin/find is present on CentOS and FreeBSD
+  /usr/bin/find "$dir" -executable -regex '.*/[A-Za-z0-9_-]+' -exec '{}' \;
+fi

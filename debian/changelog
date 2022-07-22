@@ -1,3 +1,15 @@
+dehydrated-code-rack (0.8) stable; urgency=medium
+
+  * Add hook for combined cert file (key followed by full chain for, e.g., hitch)
+
+ -- Alex Frolkin <alex@mythic-beasts.com>  Wed, 05 Jun 2019 14:59:31 +0100
+
+dehydrated-code-rack (0.7) stable; urgency=medium
+
+  * Add hook for stunnel4
+
+ -- Alex Frolkin <alex@mythic-beasts.com>  Wed, 05 Jun 2019 14:55:01 +0100
+
 dehydrated-code-rack (0.6) stable; urgency=medium
 
   * add more hooks: group-read, services-reload, services-restart
