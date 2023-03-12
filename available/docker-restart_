@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# symlink this file to 'docker-restart_<name of container to reload'
+# symlink this file to 'docker-restart_<name of container to reload>'
 
 filename="$(basename "$0")"
 container="${filename#*_}"
