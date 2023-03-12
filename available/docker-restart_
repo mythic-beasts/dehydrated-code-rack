@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# symlink this file to 'docker-restart_<name of container to reload>'
+
+filename="$(basename "$0")"
+container="${filename#*_}"
+
+# Override in a config file if needed, e.g. to use sudo:
+# echo 'export DOCKER_CMD="/usr/bin/sudo /usr/bin/docker"' >> /etc/dehydrated/conf.d/docker_cmd.sh
+if [ -z "$DOCKER_CMD" ]
+then
+  DOCKER_CMD=/usr/bin/docker
+fi
+
+echo "Restarting docker container $service..."
+$DOCKER_CMD restart "$container"
