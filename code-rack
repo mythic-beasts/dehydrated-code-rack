@@ -42,7 +42,6 @@ case $handler in
         export ERROR="${1:-}"
         ;;
     *)
-        echo "Unknown hook: $handler" >&2
         exit 0
         ;;
 esac
