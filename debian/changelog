@@ -1,3 +1,20 @@
+dehydrated-code-rack (0.9) stable; urgency=medium
+
+  [ Laurence ]
+  * Work-around for non-Debian systems
+  * Clarified location of hooks
+  * Explained how hooks work with HOOK_CHAIN=yes
+  * code-rack dies with current version of dehydrated
+  * Support missing hooks
+  * Update code-rack
+  * Updated README for new hooks
+
+  [ Tim Stallard ]
+  * skip reloading service if it's not already running
+  * don't log unknown hooks, to avoid producing output for this_hookscript_is_broken__dehydrated_is_working_fine__please_ignore_unknown_hooks_in_your_script
+
+ -- Tim Stallard <tim@mythic-beasts.com>  Thu, 30 Jul 2026 12:09:54 +0100
+
 dehydrated-code-rack (0.8) stable; urgency=medium
 
   * Add hook for combined cert file (key followed by full chain for, e.g., hitch)
