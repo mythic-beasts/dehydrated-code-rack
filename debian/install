@@ -1,0 +1,3 @@
+code-rack etc/dehydrated/hooks
+code-rack.sh etc/dehydrated/conf.d
+available/deploy-cert etc/dehydrated/hooks/available
