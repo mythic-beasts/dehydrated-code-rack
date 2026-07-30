@@ -6,5 +6,9 @@
 # echo 'export SERVICES_RELOAD="mojo nginx"' >> /etc/dehydrated/conf.d/services.sh
 
 for s in $SERVICES_RELOAD; do
+	if [ -d /run/systemd/system ] && ! systemctl --quiet is-active $s; then
+		echo "Skipping reloading $s, as service is not currently running"
+		continue
+	fi
 	/usr/sbin/service $s reload
 done
