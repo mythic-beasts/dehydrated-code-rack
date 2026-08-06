@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# symlink this file to 'ifdomain_<domain with '-' in place of '.'>_<hook to run>'
+
+filename="$(basename "$0")"
+
+next_hook_dir="$(dirname "$( realpath $0 )")"
+
+name_without_prefix="${filename#*-}"
+dash_domain="${name_without_prefix%%_*}"
+next_hook="${name_without_prefix#*_}"
+
+if [[ ${DOMAIN//./-} = $dash_domain ]]
+then
+	echo "Running $next_hook for domain $DOMAIN"
+	$next_hook_dir/$next_hook
+else
+	echo "Skipping $next_hook, domain ${DOMAIN//./-} is not $dash_domain"
+fi

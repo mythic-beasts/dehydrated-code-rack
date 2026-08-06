@@ -1,0 +1,16 @@
+#!/bin/bash
+
+ILO_CONF_DIR=/etc/dehydrated/hp-ilo
+
+ILO_CONF_FILE="$ILO_CONF_DIR/$DOMAIN.ini"
+
+# Check config file exists
+if [ ! -f "$ILO_CONF_FILE" ]
+then
+  echo "No iLO configuration file for $DOMAIN (looked for $DOMAIN.ini in $ILO_CONF_DIR)" >&2
+  exit 1
+fi
+
+hpilo_cli -c "$ILO_CONF_FILE" "$DOMAIN" import_certificate certificate="$( cat $CERTFILE )"
+
+exit $?  # use the hpilo_cli exit status as this script's exit status

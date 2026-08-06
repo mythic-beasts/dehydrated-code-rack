@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# symlink this file to 'reload_<name of service to reload'
+
+filename="$(basename "$0")"
+service="${filename#*_}"
+
+# Override in a config file if needed, e.g. to use sudo:
+# echo 'export SYSTEMCTL_CMD="/usr/bin/sudo /bin/systemctl"' >> /etc/dehydrated/conf.d/systemctl_cmd.sh
+if [ -z "$SYSTEMCTL_CMD" ]
+then
+  SYSTEMCTL_CMD=/bin/systemctl
+fi
+
+echo "Reloading $service..."
+$SYSTEMCTL_CMD reload "$service"
