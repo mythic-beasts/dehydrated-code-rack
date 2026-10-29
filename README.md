@@ -1,6 +1,7 @@
 # dehydrated-code-rack
 
-Easily invoke multiple dehydrated hooks.
+Easily invoke multiple dehydrated hooks licensed under the 
+[MIT licence](LICENCE.txt).
 
 A strength of [dehydrated](https://github.com/lukas2511/dehydrated) is its
 ability to call a hook script at various stages in the ACME process. A weakness

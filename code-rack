@@ -3,7 +3,7 @@
 # dehydrated-code-rack - easily invoke multiple dehydrated hooks
 
 # Copyright (c) 2018 Mythic Beasts Ltd
-# All right reserved
+# This script is licensed under The MIT License (see LICENCE.txt)
 
 handler="$1"; shift
 
